@@ -1,7 +1,7 @@
 from math import sqrt, ceil
 
 def derive_ev(stat_exp_line):
-    stat_exp = int(stat_exp_line[len('\tbigdw'):])
+    stat_exp = int(stat_exp_line[len('\tbigdw '):])
     return str(int(ceil(sqrt(stat_exp))))
 
 filename = 'data/battle_tower/parties.asm'
@@ -23,6 +23,7 @@ with open(filename, 'w', encoding= 'utf8') as file:
         evs = [derive_ev(exp_line) for exp_line in exp_lines]
         evs.append(evs[-1]) # Special -> SpA and SpD
         file.write('\tdb {} ; EVs\n'.format(', '.join(evs)))
+        file.write('\tdb 0, 0, 0, 0 ; padding\n')
         i += 6
 
 
