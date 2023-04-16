@@ -6220,7 +6220,7 @@ LoadEnemyMon:
 ; Fill stats
 	ld de, wEnemyMonMaxHP
 	ld b, FALSE
-	ld hl, wEnemyMonDVs - (MON_DVS - MON_STAT_EXP + 1)
+	ld hl, wEnemyMonDVs - (MON_DVS - MON_EVS + 1)
 	predef CalcMonStats
 
 ; If we're in a trainer battle,
@@ -7050,7 +7050,7 @@ GiveExperiencePoints:
 		ld a, c
 		cp 2 ; two stats left, SpAtk and SpDef
 		jr nz, .ev_loop
-		ld a [WBaseSpAtkSpDefEVs]
+		ld a, [wBaseSpAtkSpDefEVs]
 		ld b, a
 		jr .ev_loop
 .evs_done ;; end of mod
@@ -7207,7 +7207,7 @@ GiveExperiencePoints:
 	add hl, bc
 	ld d, h
 	ld e, l
-	ld hl, MON_STAT_EXP - 1
+	ld hl, MON_EVS - 1
 	add hl, bc
 	push bc
 	ld b, TRUE
