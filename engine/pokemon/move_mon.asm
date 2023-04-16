@@ -1401,9 +1401,9 @@ ComputeNPCTrademonStats:
 
 CalcMonStats:
 ; Calculates all 6 Stats of a mon
-; b: Take into account stat EXP if TRUE
+; b: Take into account EVs if TRUE (MOD)
 ; 'c' counts from 1-6 and points with 'wBaseStats' to the base value
-; hl is the path to the Stat EXP
+; hl is the path to the EVs (MOD)
 ; de points to where the final stats will be saved
 
 	ld c, STAT_HP - 1 ; first stat
@@ -1443,30 +1443,18 @@ CalcMonStatC:
 	ld e, a
 	pop hl
 	push hl
-	ld a, c
-	cp STAT_SDEF ; last stat
-	jr nz, .not_spdef
-	dec hl
-	dec hl
 
-.not_spdef
-	sla c
 	ld a, d
 	and a
 	jr z, .no_stat_exp
 	add hl, bc
-	push de
-	ld a, [hld]
-	ld e, a
-	ld d, [hl]
-	farcall GetSquareRoot
-	pop de
+	ld a, [hli]
+	ld b, a
 
 .no_stat_exp
-	srl c
 	pop hl
 	push bc
-	ld bc, MON_DVS - MON_HP_EXP + 1
+	ld bc, MON_DVS - MON_HP_EV + 1
 	add hl, bc
 	pop bc
 	ld a, c
