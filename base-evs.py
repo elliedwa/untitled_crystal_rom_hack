@@ -10,8 +10,8 @@ for filename in filenames:
 
     with open(filename, 'w', encoding='utf8') as file:
         for line in lines:
-            if line in ['\tdb100 ; unknown1\n', '\tdb 5 ; unknown 2\n']:
+            if line in ['\tdb 100 ; unknown 1\n', '\tdb 5 ; unknown 2\n']:
                 continue
             if line == '\t;   hp  atk  def  spd  sat  sdf\n':
                 file.write('\tevs  0,   0,   0,   0,   0,   0\n')
-                file.write(line)
+            file.write(line)
