@@ -9,6 +9,10 @@ DEF BASE_DEF         rb
 DEF BASE_SPD         rb
 DEF BASE_SAT         rb
 DEF BASE_SDF         rb
+DEF BASE_EVS				 rw
+rsset BASE_EVS
+DEF BASE_ATK_DEF_SPD_EVS rb
+DEF BASE_SAT_SDF_EVS     rb
 DEF BASE_TYPES       rw
 rsset BASE_TYPES
 DEF BASE_TYPE_1      rb
@@ -20,9 +24,7 @@ rsset BASE_ITEMS
 DEF BASE_ITEM_1      rb
 DEF BASE_ITEM_2      rb
 DEF BASE_GENDER      rb
-                     rb_skip
 DEF BASE_EGG_STEPS   rb
-                     rb_skip
 DEF BASE_PIC_SIZE    rb
 DEF BASE_FRONTPIC    rw
 DEF BASE_BACKPIC     rw
@@ -79,7 +81,7 @@ DEF MON_ITEM               rb
 DEF MON_MOVES              rb NUM_MOVES
 DEF MON_ID                 rw
 DEF MON_EXP                rb 3
-DEF MON_EVS           rb STATS
+DEF MON_EVS           rb NUM_STATS
 rsset MON_EVS
 DEF MON_HP_EV             rb
 DEF MON_ATK_EV            rb

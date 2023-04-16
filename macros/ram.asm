@@ -11,12 +11,12 @@ MACRO box_struct
 \1ID::             dw
 \1Exp::            ds 3
 \1EVs::
-\1HPEV::					 dw
-\1AtkEV::					 dw
-\1DefEV::					 dw
-\1SpdEV::					 dw
-\1SpclAtkEV::			 dw
-\1SpclDefEV::			 dw
+\1HPEV::					 db
+\1AtkEV::					 db
+\1DefEV::					 db
+\1SpdEV::					 db
+\1SpclAtkEV::			 db
+\1SpclDefEV::			 db
 \1Padding::				 ds 4
 \1DVs::            dw
 \1PP::             ds NUM_MOVES
