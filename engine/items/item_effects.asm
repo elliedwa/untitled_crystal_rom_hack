@@ -1258,7 +1258,7 @@ EVItemPointerOffsets:
 	db PROTEIN, MON_ATK_EV - MON_EVS
 	db IRON,    MON_DEF_EV - MON_EVS
 	db CARBOS,  MON_SPD_EV - MON_EVS
-	db CALCIUM, MON_SPC_EV - MON_EVS
+	db CALCIUM, MON_SAT_EV - MON_EVS
 
 RareCandy_StatBooster_GetParameters:
 	ld a, [wCurPartySpecies]
